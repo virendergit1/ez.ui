@@ -2,10 +2,18 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title></title>
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../bower_components/c3/c3.css" rel="stylesheet" type="text/css">
+
+    <script data-main="../main.js" src="../../bower_components/requirejs/require.js"></script>
 </head>
 <body>
-    Index page for EC...
+<a href="#/dashboard" ui-sref="dashboard">Go To Dashboard</a>
+
+
+<div ui-view></div>
 </body>
 </html>

@@ -43,7 +43,10 @@
             indexHtml: ['index.html'],
             htmlPages: ['<%= pkg.sourceDir %>/src/pages/**/*.html'],
             mainJs: ['main.js'],
-            libsJs: ['<%= pkg.sourceDir %>/src/libs/*.js']
+            libsJs: ['<%= pkg.sourceDir %>/src/libs/*.js'],
+            serviceJs: ['<%= pkg.sourceDir %>/src/services/**/*.js'],
+            apiProxiesJs: ['<%= pkg.sourceDir %>/src/apiProxies/**/*.js'],
+            widgetsJs: ['<%= pkg.sourceDir %>/src/widgets/**/*.js']
         },
         meta: {
             banner: '/**\n' +
@@ -54,22 +57,22 @@
             karmaConfig: '<%= pkg.sourceDir %>/tests/config/karma.conf.js',
             unit: ['<%= pkg.sourceDir %>/tests/unit/**/*.js']
         },
-        //eslint: {
-        //    options: {
-        //        configFile: "eslintrc.json",
-        //        ignore: true,
-        //        ignorePath: ".eslintignore"
-        //    },
-        //    src: ['Gruntfile.js', '<%= src.js %>', '<%= test.unit %>']
-        //},
+        eslint: {
+            options: {
+                configFile: "eslintrc.json",
+                ignore: true,
+                ignorePath: ".eslintignore"
+            },
+            src: ['Gruntfile.js', '<%= src.js %>', '<%= test.unit %>']
+        },
         watch: {
-            //eslint: {
-            //    files: ['<%= src.js %>', '<%= test.unit %>', '<%= test.karmaConfig %>', 'Gruntfile.js', 'mainJs'],
-            //    tasks: ['eslint'],
-            //    options: {
-            //        interrupt: true
-            //    }
-            //},
+            eslint: {
+                files: ['<%= src.js %>', '<%= src.htmlPages%>', '<%= test.unit %>', '<%= test.karmaConfig %>', 'Gruntfile.js', 'mainJs'],
+                tasks: ['eslint'],
+                options: {
+                    interrupt: true
+                }
+            },
             less: {
                 files: ['<%= src.lessAll %>'],
                 tasks: ['buildcss']
@@ -90,7 +93,16 @@
             css: ['<%= cssDistDirectory %>']
         },
         html2js: {
-            
+            sampleWidget: {
+                options: setHtml2JsDefaultOptions('sampleWidget.template'),
+                src: '<%= pkg.sourceDir %>/src/widgets/sampleWidget/*.html',
+                dest: '<%= distMainDirectory %>/src/widgets/sampleWidgetTemplate.js'
+            },
+            anotherWidget: {
+                options: setHtml2JsDefaultOptions('anotherWidget.template'),
+                src: '<%= pkg.sourceDir %>/src/widgets/anotherWidget/*.html',
+                dest: '<%= distMainDirectory %>/src/widgets/anotherWidgetTemplate.js'
+            }
         },
         copy: {
             indexHtml: {
@@ -100,6 +112,16 @@
                         flatten: true,
                         src: ['<%= src.indexHtml %>'],
                         dest: '<%= distMainDirectory %>'
+                    }
+                ]
+            },
+            srcJs: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= src.srcJs %>'],
+                        dest: '<%= distMainDirectory %>/src/ez'
                     }
                 ]
             },
@@ -142,10 +164,86 @@
                         dest: '<%= distMainDirectory %>/libs'
                     }
                 ]
+            },
+            services: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= src.serviceJs %>'],
+                        dest: '<%= distMainDirectory %>/src/services'
+                    }
+                ]
+            },
+            apiProxies: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= src.apiProxiesJs %>'],
+                        dest: '<%= distMainDirectory %>/src/apiProxies'
+                    }
+                ]
+            },
+            widgets: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= src.widgetsJs %>'],
+                        dest: '<%= distMainDirectory %>/src/widgets'
+                    }
+                ]
             }
         },
         requirejs: {
-
+            compile: {
+                options: {
+                    optimize: "none",
+                    logLevel: 0,
+                    name: "app",
+                    out: "dist/src/app.js",
+                    baseUrl: "<%= distDirectory %>",
+                    paths: {
+                        'app': './src/src/ez/app',
+                        'route': './src/src/ez',
+                        'angular': 'empty:',
+                        'uiRouter': 'empty:',
+                        'spin': 'empty:',
+                        'sampleWidget/sampleWidgetModule': 'empty:',
+                        'anotherWidget/anotherWidgetModule': 'empty:',
+                        'ngidle': 'empty:'
+                    }
+                }
+            },
+            sampleWidget: {
+                options: {
+                    optimize: "none",
+                    logLevel: 0,
+                    mainConfigFile: 'main.js',
+                    name: 'sampleWidget/sampleWidgetModule',
+                    out: 'dist/src/widgets/sampleWidgetModule.js',
+                    paths: {
+                        'sampleWidget': './dist/src/src/widgets',
+                        'anotherWidget': 'empty:',
+                        'angular': 'empty:'
+                    }
+                }
+            },
+            anotherWidget: {
+                options: {
+                    optimize: "none",
+                    logLevel: 0,
+                    mainConfigFile: 'main.js',
+                    name: 'anotherWidget/anotherWidgetModule',
+                    out: 'dist/src/widgets/anotherWidgetModule.js',
+                    paths: {
+                        'anotherWidget': './dist/src/src/widgets',
+                        'sampleWidget': 'empty:',
+                        'angular': 'empty:'
+                    }
+                }
+            }
         },
         usebanner: {
             dist: {
@@ -170,11 +268,11 @@
             }
         },
         less: {
-            
+
         },
         concurrent: {
             dev: {
-                tasks: ['watch:release', 'watch'],
+                tasks: ['watch:release', 'eslint', 'watch'],
                 options: {
                     logConcurrentOutput: true
                 }
@@ -200,11 +298,12 @@
 
     grunt.registerTask('release', [
         //'buildcss',
-        //'eslint',
+        'eslint',
         'copyfiles',
         'html2JS',
-        //'requirejs',
-        'usebanner:dist'
+        'requirejs',
+        'usebanner:dist',
+        'clean:appRelease'
     ]);
 
     grunt.registerTask('default', ['release']);
@@ -215,26 +314,27 @@
     //    'usebanner:css'
     //]);
 
-    grunt.registerTask('html2JS', []);
+    grunt.registerTask('html2JS', [
+        'html2js:sampleWidget',
+        'html2js:anotherWidget'
+    ]);
 
     grunt.registerTask('copyfiles', [
         'copy:indexHtml',
+        'copy:srcJs',
         'copy:mainJs',
         'copy:htmlPages',
-        'copy:libsJs'
+        'copy:libsJs',
+        'copy:services',
+        'copy:apiProxies',
+        'copy:widgets'
     ]);
 
     grunt.registerTask('web-start', ['release', 'express:app', 'open:app', 'express-keepalive']);
     grunt.registerTask('dev', ['release', 'concurrent']);
 
-    require('load-grunt-tasks')(grunt);
+    require('load-grunt-tasks')(grunt, { pattern: ['grunt-*', 'grunt*', '@*/grunt-*'] });
     require('time-grunt')(grunt);
-
-    //grunt.loadNpmTasks("gruntify-eslint");
-
-    //grunt.registerTask("default", [
-    //    'eslint'
-    //]);
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');

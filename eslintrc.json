@@ -1,4 +1,4 @@
-﻿{
+{
   "env": {
     "node": true,
     "browser": true
@@ -38,14 +38,14 @@
     "angular/angularelement": 0,
     "angular/controller-as": 2,
     "angular/controller-as-route": 0,
-    "angular/controller-as-vm": [ 2, "vm" ],
-    "angular/controller-name": [ 0, "/[A-Z].*Controller$/" ],
+    "angular/controller-as-vm": 2,
+    "angular/controller-name": 0,
     "angular/deferred": 0,
     "angular/definedundefined": 0,
-    "angular/di": [ 0, "function" ],
-    "angular/di-order": [ 0, true ],
+    "angular/di": 0,
+    "angular/di-order": 0,
     "angular/directive-name": 2,
-    "angular/component-limit": [ 0, 1 ],
+    "angular/component-limit": 0,
     "angular/document-service": 0,
     "angular/empty-controller": 0,
     "angular/file-name": 0,
@@ -64,10 +64,7 @@
     "angular/no-jquery-angularelement": 2,
     "angular/no-private-call": 0,
     "angular/no-service-method": 0,
-    "angular/no-services": [
-      2,
-      [ "$http", "$resource", "Restangular" ]
-    ],
+    "angular/no-services": 2,
     "angular/on-watch": 0,
     "angular/rest-service": 2,
     "angular/service-name": 2,
@@ -78,36 +75,21 @@
     "angular/typecheck-number": 0,
     "angular/typecheck-object": 0,
     "angular/typecheck-string": 0,
-    "angular/watchers-execution": [ 0, "$digest" ],
+    "angular/watchers-execution": [0, "$digest"],
     "angular/window-service": 0,
     "block-scoped-var": 1,
     "camelcase": 0,
-    "comma-style": [
-      0,
-      "first"
-    ],
-    "curly": [
-      2,
-      "all"
-    ],
+    "comma-style":0,
+    "curly": 2,
     "dot-notation": 0,
-    "eqeqeq": [
-      2,
-      "allow-null"
-    ],
-    "no-eq-null": 2,
-    "global-strict": [
-      0,
-      "never"
-    ],
+    "eqeqeq":2,
+    "no-eq-null":2,
+    "global-strict": 0,
     "guard-for-in": 2,
     "new-cap": 0,
     "no-bitwise": 2,
     "no-caller": 2,
-    "no-cond-assign": [
-      2,
-      "except-parens"
-    ],
+    "no-cond-assign": 2,
     "no-debugger": 2,
     "no-empty": 0,
     "no-eval": 2,
@@ -124,9 +106,9 @@
     "no-sequences": 2,
     "no-shadow": 0,
     "no-undef": 2,
-    "no-unused-vars": 0,
+    "no-unused-vars": 1,
     "no-use-before-define": [
-      0,
+      2,      
       {
         "functions": false
       }
@@ -137,16 +119,10 @@
       0,
       "single"
     ],
-    "semi": [
-      2,
-      "always"
-    ],
+    "semi": 2,
     "no-extra-semi": 2,
     "strict": 0,
     "valid-typeof": 2,
-    "wrap-iife": [
-      0,
-      "inside"
-    ]
+    "wrap-iife": 0
   }
 }

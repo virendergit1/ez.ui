@@ -681,10 +681,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="app\src\apiProxies\baseApiProxy.js" />
     <Content Include="app\src\app.js" />
     <Content Include="app\src\libs\angular-busy.js" />
+    <Content Include="app\src\pages\dashboard.html" />
     <Content Include="app\src\pages\index.html" />
     <Content Include="app\src\routes.js" />
+    <Content Include="app\src\services\alertService.js" />
+    <Content Include="app\src\services\alertTypeConstant.js" />
+    <Content Include="app\src\services\serviceConstant.js" />
+    <Content Include="app\src\services\translateService.js" />
+    <Content Include="app\src\services\utilities.js" />
+    <Content Include="app\src\services\validatorService.js" />
+    <Content Include="app\src\widgets\anotherWidget\anotherWidgetController.js" />
+    <Content Include="app\src\widgets\anotherWidget\anotherWidgetDirective.js" />
+    <Content Include="app\src\widgets\anotherWidget\anotherWidgetModule.js" />
+    <Content Include="app\src\widgets\anotherWidget\anotherWidgetService.js" />
+    <Content Include="app\src\widgets\anotherWidget\anotherWidgetTemplate.html" />
+    <Content Include="app\src\widgets\sampleWidget\sampleWidgetController.js" />
+    <Content Include="app\src\widgets\sampleWidget\sampleWidgetDirective.js" />
+    <Content Include="app\src\widgets\sampleWidget\sampleWidgetModule.js" />
+    <Content Include="app\src\widgets\sampleWidget\sampleWidgetService.js" />
+    <Content Include="app\src\widgets\sampleWidget\sampleWidgetTemplate.html" />
     <Content Include="dist\bower_components\almond\.gitignore" />
     <Content Include="dist\bower_components\almond\almond.js" />
     <Content Include="dist\bower_components\angular-animate\angular-animate.js" />
