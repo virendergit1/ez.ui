@@ -15,6 +15,8 @@
                 onmouseout: function (d, i) { console.log("onmouseout", d, i); }
             }
         });
+
+        $("#char1").append(chart.element);
     };
 
     sampleWidgetController.$inject = ['$scope', '$window'];

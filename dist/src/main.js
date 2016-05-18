@@ -1,5 +1,5 @@
 /**
- * easycollect.ui - 2016/05/18 16:20:59 UTC
+ * easycollect.ui - 2016/05/18 23:08:47 UTC
 */
 
 require.config({
@@ -144,8 +144,6 @@ require(
         window.c3 = c3;
         window._ = lodash;
         window.$ = window.jQuery = $;
-
-        //console.log(window.c3);
 
         $(document).ready(function () {
             $("body").tooltip({ selector: '[data-toggle=tooltip]' });

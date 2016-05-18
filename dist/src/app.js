@@ -1,5 +1,5 @@
 /**
- * easycollect.ui - 2016/05/18 16:20:59 UTC
+ * easycollect.ui - 2016/05/18 23:08:47 UTC
 */
 define('src/src/services/validatorService',[],function () {
     'user strict';

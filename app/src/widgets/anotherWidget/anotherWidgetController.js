@@ -17,6 +17,8 @@
                 title: "Iris Petal Width"
             }
         });
+
+        $("#chart2").append(chart.element);
     };
 
     anotherWidgetController.$inject = ['$scope', '$window'];
