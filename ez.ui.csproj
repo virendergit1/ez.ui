@@ -2026,10 +2026,14 @@
     <Content Include="dist\bower_components\raphael\webpack.config.js" />
     <Content Include="dist\bower_components\requirejs-text\text.js" />
     <Content Include="dist\bower_components\requirejs\require.js" />
+    <Content Include="dist\src\app.js" />
     <Content Include="dist\src\index.html" />
     <Content Include="dist\src\libs\angular-busy.js" />
     <Content Include="dist\src\main.js" />
+    <Content Include="dist\src\pages\dashboard.html" />
     <Content Include="dist\src\pages\index.html" />
+    <Content Include="dist\src\widgets\anotherWidgetModule.js" />
+    <Content Include="dist\src\widgets\sampleWidgetModule.js" />
     <Content Include="Gruntfile.js" />
     <Content Include="index.html" />
     <Content Include="main.js" />

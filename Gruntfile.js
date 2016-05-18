@@ -286,13 +286,14 @@
                     port: 9001,
                     hostname: "localhost",
                     server: path.resolve('./server.js'),
-                    bases: [path.resolve('./dist/src')]
+                    bases: [path.resolve('dist/src')],
+                    debug: true
                 }
             }
         },
         open: {
             server: {
-                path: 'http://localhost:<%= express.server.options.port %>/<%= distMainDirectory %>/index.html'
+                path: 'http://localhost:<%= express.server.options.port %>/'
             }
         }
 

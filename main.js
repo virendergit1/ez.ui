@@ -142,8 +142,6 @@ require(
         window._ = lodash;
         window.$ = window.jQuery = $;
 
-        //console.log(window.c3);
-
         $(document).ready(function () {
             $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 
