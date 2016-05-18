@@ -30,6 +30,8 @@
         };
     };
 
+    var path = require('path');
+
     grunt.initConfig({
         distDirectory: 'dist',
         distMainDirectory: '<%= distDirectory %>/src',
@@ -279,18 +281,18 @@
             }
         },
         express: {
-            app: {
+            server: {
                 options: {
-                    port: 54567,
-                    hostname: 'localhost',
-                    scheme: 'http',
-                    showStack: true
+                    port: 9001,
+                    hostname: "localhost",
+                    server: path.resolve('./server.js'),
+                    bases: [path.resolve('./dist/src')]
                 }
             }
         },
         open: {
-            app: {
-                path: 'http://localhost:<%= express.app.options.port %>/<%= distMainDirectory %>/index.html'
+            server: {
+                path: 'http://localhost:<%= express.server.options.port %>/<%= distMainDirectory %>/index.html'
             }
         }
 
@@ -330,7 +332,7 @@
         'copy:widgets'
     ]);
 
-    grunt.registerTask('web-start', ['release', 'express:app', 'open:app', 'express-keepalive']);
+    grunt.registerTask('web-start', ['release', 'express:server', 'open:server', 'express-keepalive']);
     grunt.registerTask('dev', ['release', 'concurrent']);
 
     require('load-grunt-tasks')(grunt, { pattern: ['grunt-*', 'grunt*', '@*/grunt-*'] });
