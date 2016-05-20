@@ -9,5 +9,6 @@ app.get('/', function (req, res) {
 
 app.use('/bower_components', express.static(path.join(__dirname, 'dist/bower_components')));
 app.use('/src', express.static(path.join(__dirname, 'dist/src')));
+app.use('/app', express.static(path.join(__dirname, 'app')));
 
 module.exports = app;

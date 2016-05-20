@@ -338,13 +338,5 @@
 
     require('load-grunt-tasks')(grunt, { pattern: ['grunt-*', 'grunt*', '@*/grunt-*'] });
     require('time-grunt')(grunt);
-
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-html2js');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-express');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-contrib-concat');
+        
 };
