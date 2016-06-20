@@ -5,9 +5,10 @@
         var chart = $window.c3.generate({
             data: {
                 columns: [
-                    ['data1', 30],
-                    ['data2', 120],
-                    ['data3', 60]
+                    ['SOFTCOLL', 30],
+                    ['HARDCOLL', 120],
+                    ['FIELDVIS', 60],
+                    ['PRELEGAL', 60]
                 ],
                 type: 'pie',
                 onclick: function (d, i) { console.log("onclick", d, i); },

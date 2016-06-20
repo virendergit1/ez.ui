@@ -3,7 +3,7 @@ angular.module('sampleWidget.template', ['/app/src/widgets/sampleWidget/sampleWi
 angular.module("/app/src/widgets/sampleWidget/sampleWidgetTemplate.html", []).run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("/app/src/widgets/sampleWidget/sampleWidgetTemplate.html",
-    "<div class=row><div class=col-lg-4><div class=\"panel panel-default\"><div class=panel-heading><i class=\"fa fa-bar-chart-o fa-fw\"></i> Pie Chart Example<div class=pull-right><div class=btn-group><button type=button class=\"btn btn-default btn-xs dropdown-toggle\" data-toggle=dropdown>Actions <span class=caret></span></button><ul class=\"dropdown-menu pull-right\" role=menu><li><a href=#>Action</a></li><li><a href=#>Another action</a></li><li><a href=#>Something else here</a></li><li class=divider></li><li><a href=#>Separated link</a></li></ul></div></div></div><div class=panel-body><div id=char1>Flow Chart</div></div></div></div></div>");
+    "<div class=row><div class=col-lg-4><div class=\"panel panel-default\"><div class=panel-heading><i class=\"fa fa-bar-chart-o fa-fw\"></i> My Current Allocation<div class=pull-right><div class=btn-group><button type=button class=\"btn btn-default btn-xs dropdown-toggle\" data-toggle=dropdown><i class=\"fa fa-gear\"></i> <span class=caret></span></button><ul class=\"dropdown-menu pull-right\" role=menu><li><a href=#>Action</a></li><li><a href=#>Another action</a></li><li><a href=#>Something else here</a></li><li class=divider></li><li><a href=#>Separated link</a></li></ul></div></div></div><div class=panel-body><div id=char1>Accounts by group<div class=pull-right>N &nbsp; $ &nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;<div class=btn-group><button type=button class=\"btn btn-default btn-xs dropdown-toggle\" data-toggle=dropdown>Filter <span class=caret></span></button><ul class=\"dropdown-menu pull-right\" role=menu><li><a href=#>Filter1</a></li><li><a href=#>Filter2</a></li><li><a href=#>Filter3</a></li></ul></div></div></div></div></div></div></div>");
 }]);
 
 define("sampleWidget/sampleWidgetTemplate", function(){});
@@ -15,9 +15,10 @@ define('sampleWidget/sampleWidgetController',['require'],function (require) {
         var chart = $window.c3.generate({
             data: {
                 columns: [
-                    ['data1', 30],
-                    ['data2', 120],
-                    ['data3', 60]
+                    ['SOFTCOLL', 30],
+                    ['HARDCOLL', 120],
+                    ['FIELDVIS', 60],
+                    ['PRELEGAL', 60]
                 ],
                 type: 'pie',
                 onclick: function (d, i) { console.log("onclick", d, i); },

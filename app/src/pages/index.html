@@ -2,18 +2,40 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8"/>
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Easy Collect</title>
+
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../../bower_components/c3/c3.css" rel="stylesheet" type="text/css">
+    <link href="../../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!--to be replaced-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+
+    <link rel="stylesheet" href="../css/AdminLTE.min.css">
+     <link rel="stylesheet" href="../css/skin-blue.min.css">
+   
 
     <script data-main="../main.js" src="../../bower_components/requirejs/require.js"></script>
 </head>
-<body>
-<a href="#/dashboard" ui-sref="dashboard">Go To Dashboard</a>
-
+<body class="hold-transition skin-blue sidebar-mini">
 
 <div ui-view></div>
+
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Version</b> 0.0.1
+    </div>
+    <strong>Copyright &copy; 2014-2015 <a href="#">EasyCollect</a>.</strong> All rights
+    reserved.
+</footer>
+
+    <script>
+  $.widget.bridge('uibutton', $.ui.button);
+    </script>
 </body>
 </html>

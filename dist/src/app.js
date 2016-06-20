@@ -1,5 +1,5 @@
 /**
- * easycollect.ui - 2016/05/18 23:29:13 UTC
+ * easycollect.ui - 2016/06/20 23:26:32 UTC
 */
 define('src/src/services/validatorService',[],function () {
     'user strict';
@@ -61,13 +61,17 @@ define('src/src/apiProxies/baseApiProxy',[], function () {
 define('route/routes',[],function() {
     var routes = function($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/login");
+        $urlRouterProvider.otherwise("/dashboard");
 
         $stateProvider
             .state('dashboard', {
                 url: "/dashboard",
                 templateUrl: "dashboard.html"
-            });
+            })
+        .state('login', {
+            url: "/login",
+            templateUrl: "login.html"
+        });
 
     };
     return routes;

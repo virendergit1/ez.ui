@@ -48,7 +48,8 @@
             libsJs: ['<%= pkg.sourceDir %>/src/libs/*.js'],
             serviceJs: ['<%= pkg.sourceDir %>/src/services/**/*.js'],
             apiProxiesJs: ['<%= pkg.sourceDir %>/src/apiProxies/**/*.js'],
-            widgetsJs: ['<%= pkg.sourceDir %>/src/widgets/**/*.js']
+            widgetsJs: ['<%= pkg.sourceDir %>/src/widgets/**/*.js'],
+            cssDirectory: '<%= pkg.sourceDir %>/src/assets/css/**/*.css',
         },
         meta: {
             banner: '/**\n' +
@@ -330,7 +331,8 @@
         'copy:libsJs',
         'copy:services',
         'copy:apiProxies',
-        'copy:widgets'
+        'copy:widgets',
+        'copy:appCss'
     ]);
 
     grunt.registerTask('web-start', ['release', 'express:server', 'open:server', 'express-keepalive']);

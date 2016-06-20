@@ -1,5 +1,5 @@
 /**
- * easycollect.ui - 2016/05/18 23:29:13 UTC
+ * easycollect.ui - 2016/06/20 23:26:32 UTC
 */
 
 require.config({
