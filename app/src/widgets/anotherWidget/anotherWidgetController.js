@@ -5,16 +5,23 @@
         var chart = $window.c3.generate({
             data: {
                 columns: [
-                    ['data1', 30],
-                    ['data2', 120]
+                    ['RECOVERY', 2, 4, 5,3],
+                    ['HARDCOLL', 4, 2, 5, 3],
+                    ['SOFTCOLL', 3, 5, 2, 6]
                 ],
-                type: 'donut',
+                type: 'bar',
+                groups: [
+                        ['RECOVERY', 'HARDCOLL', 'SOFTCOLL']
+                ],
                 onclick: function (d, i) { console.log("onclick", d, i); },
                 onmouseover: function (d, i) { console.log("onmouseover", d, i); },
                 onmouseout: function (d, i) { console.log("onmouseout", d, i); }
             },
-            donut: {
-                title: "Iris Petal Width"
+            axis: {
+                x: {
+                    type: 'category',
+                    categories: ['Olivier', 'Nio', 'Neil', 'Jennifer']
+                }
             }
         });
 
