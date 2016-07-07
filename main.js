@@ -22,7 +22,9 @@ require.config({
         angularBreadcrumbs: '../bower_components/angular-utils-ui-breadcrumbs/uiBreadcrumbs',
         angularInform: '../bower_components/angular-inform/dist/angular-inform.min',
         sampleWidget: '../src/widgets/sampleWidgetModule',
-        anotherWidget: '../src/widgets/anotherWidgetModule'
+        anotherWidget: '../src/widgets/anotherWidgetModule',
+        lastEvents: '../src/widgets/lastEventsModule',
+        loggingStatus: '../src/widgets/loggingStatusModule'
     },
     shim: {
         'jquery': {
@@ -78,7 +80,9 @@ require.config({
                 'angularBreadcrumbs',
                 'angularInform',
                 'sampleWidget',
-                'anotherWidget'
+                'anotherWidget',
+                'lastEvents',
+                'loggingStatus'
             ]
         },
         'lodash': {
@@ -122,6 +126,14 @@ require.config({
         'anotherWidget': {
             deps: ['angular'],
             'anotherWidget': { exports: 'anotherWidget' }
+        },
+        'lastEvents': {
+            deps: ['angular'],
+            'lastEvents': { exports: 'lastEvents' }
+        },
+        'loggingStatus': {
+            deps: ['angular'],
+            'loggingStatus': { exports: 'loggingStatus' }
         }
     },
     priority: [
