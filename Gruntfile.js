@@ -105,6 +105,16 @@
                 options: setHtml2JsDefaultOptions('anotherWidget.template'),
                 src: '<%= pkg.sourceDir %>/src/widgets/anotherWidget/*.html',
                 dest: '<%= distMainDirectory %>/src/widgets/anotherWidgetTemplate.js'
+            },
+            lastEvents: {
+                options: setHtml2JsDefaultOptions('lastEvents.template'),
+                src: '<%= pkg.sourceDir %>/src/widgets/lastEvents/*.html',
+                dest: '<%= distMainDirectory %>/src/widgets/lastEventsTemplate.js'
+            },
+            loggingStatus: {
+                options: setHtml2JsDefaultOptions('loggingStatus.template'),
+                src: '<%= pkg.sourceDir %>/src/widgets/loggingStatus/*.html',
+                dest: '<%= distMainDirectory %>/src/widgets/loggingStatusTemplate.js'
             }
         },
         copy: {
@@ -246,6 +256,38 @@
                         'angular': 'empty:'
                     }
                 }
+            },
+            lastEvents: {
+                options: {
+                    optimize: "none",
+                    logLevel: 0,
+                    mainConfigFile: 'main.js',
+                    name: 'lastEvents/lastEventsModule',
+                    out: 'dist/src/widgets/lastEventsModule.js',
+                    paths: {
+                        'lastEvents': './dist/src/src/widgets',
+                        'sampleWidget': 'empty:',
+                        'anotherWidget': 'empty:',
+                        'loggingStatus': 'empty:',
+                        'angular': 'empty:'
+                    }
+                }
+            },
+            loggingStatus: {
+                options: {
+                    optimize: "none",
+                    logLevel: 0,
+                    mainConfigFile: 'main.js',
+                    name: 'loggingStatus/loggingStatusModule',
+                    out: 'dist/src/widgets/loggingStatusModule.js',
+                    paths: {
+                        'loggingStatus': './dist/src/src/widgets',
+                        'sampleWidget': 'empty:',
+                        'anotherWidget': 'empty:',
+                        'lastEvents': 'empty:',
+                        'angular': 'empty:'
+                    }
+                }
             }
         },
         usebanner: {
@@ -320,7 +362,9 @@
 
     grunt.registerTask('html2JS', [
         'html2js:sampleWidget',
-        'html2js:anotherWidget'
+        'html2js:anotherWidget',
+        'html2js:lastEvents',
+        'html2js:loggingStatus'
     ]);
 
     grunt.registerTask('copyfiles', [

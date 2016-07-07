@@ -754,6 +754,16 @@
     <Content Include="app\src\widgets\anotherWidget\anotherWidgetModule.js" />
     <Content Include="app\src\widgets\anotherWidget\anotherWidgetService.js" />
     <Content Include="app\src\widgets\anotherWidget\anotherWidgetTemplate.html" />
+    <Content Include="app\src\widgets\lastEvents\lastEventsModule.js" />
+    <Content Include="app\src\widgets\lastEvents\lastEventsService.js" />
+    <Content Include="app\src\widgets\lastEvents\lastEventsController.js" />
+    <Content Include="app\src\widgets\lastEvents\lastEventsDirective.js" />
+    <Content Include="app\src\widgets\lastEvents\lastEventsTemplate.html" />
+    <Content Include="app\src\widgets\loggingStatus\loggingStatustController.js" />
+    <Content Include="app\src\widgets\loggingStatus\loggingStatustDirective.js" />
+    <Content Include="app\src\widgets\loggingStatus\loggingStatusModule.js" />
+    <Content Include="app\src\widgets\loggingStatus\loggingStatusService.js" />
+    <Content Include="app\src\widgets\loggingStatus\loggingStatusTemplate.html" />
     <Content Include="app\src\widgets\sampleWidget\sampleWidgetController.js" />
     <Content Include="app\src\widgets\sampleWidget\sampleWidgetDirective.js" />
     <Content Include="app\src\widgets\sampleWidget\sampleWidgetModule.js" />
@@ -2118,6 +2128,8 @@
     <Content Include="dist\src\pages\index.html" />
     <Content Include="dist\src\pages\login.html" />
     <Content Include="dist\src\widgets\anotherWidgetModule.js" />
+    <Content Include="dist\src\widgets\lastEventsModule.js" />
+    <Content Include="dist\src\widgets\loggingStatusModule.js" />
     <Content Include="dist\src\widgets\sampleWidgetModule.js" />
     <Content Include="Gruntfile.js" />
     <Content Include="index.html" />
