@@ -1,42 +1,27 @@
-angular.module('sampleWidget.template', ['/app/src/widgets/sampleWidget/sampleWidgetTemplate.html']);
+angular.module('loggingStatus.template', ['/app/src/widgets/loggingStatus/loggingStatusTemplate.html']);
 
-angular.module("/app/src/widgets/sampleWidget/sampleWidgetTemplate.html", []).run(["$templateCache", function($templateCache) {
+angular.module("/app/src/widgets/loggingStatus/loggingStatusTemplate.html", []).run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("/app/src/widgets/sampleWidget/sampleWidgetTemplate.html",
-    "<div class=row><div class=\"panel panel-default\"><div class=panel-heading><i class=\"fa fa-bar-chart-o fa-fw\"></i> My Current Allocation<div class=pull-right><div class=btn-group><button type=button class=\"btn btn-default btn-xs dropdown-toggle\" data-toggle=dropdown><i class=\"fa fa-gear\"></i> <span class=caret></span></button><ul class=\"dropdown-menu pull-right\" role=menu><li><a href=#>Action</a></li><li><a href=#>Another action</a></li><li><a href=#>Something else here</a></li><li class=divider></li><li><a href=#>Separated link</a></li></ul></div></div></div><div class=panel-body><div id=char1>Accounts by group<div class=pull-right><a href=#>N</a> &nbsp; <a href=#>$</a> &nbsp; <a href=#>%</a>&nbsp;&nbsp;&nbsp;<div class=btn-group><button type=button class=\"btn btn-default btn-xs dropdown-toggle\" data-toggle=dropdown>Filter <span class=caret></span></button><ul class=\"dropdown-menu pull-right\" role=menu><li><a href=#>Filter1</a></li><li><a href=#>Filter2</a></li><li><a href=#>Filter3</a></li></ul></div></div></div></div></div></div>");
+  $templateCache.put("/app/src/widgets/loggingStatus/loggingStatusTemplate.html",
+    "<div class=\"box box-primary\"><div class=\"box-header with-border\"><h3 class=box-title>Today’s Logging Status</h3><div class=\"box-tools pull-right\"><button type=button class=\"btn btn-box-tool\" data-widget=collapse><i class=\"fa fa-refresh\"></i></button> <button type=button class=\"btn btn-box-tool\" data-widget=remove><i class=\"fa fa-minus\"></i></button></div></div><div class=box-body><table class=table><thead class=thead-inverse><tr><th>User Name</th><th>First Login</th><th>Current Status</th></tr></thead><tbody><tr><td>Neil</td><td>8:35 AM</td><td><span class=\"label label-success\">Online</span></td></tr><tr><td>Neo</td><td>8:30 AM</td><td><span class=\"label label-warning\">Idle</span></td></tr><tr><td>Jenifer</td><td>9:55 AM</td><td><span class=\"label label-warning\">Idle</span></td></tr><tr><td>Oliver</td><td>8:30 AM</td><td><span class=\"label label-danger\">Logged out</span></td></tr></tbody></table></div></div>");
 }]);
 
-define("loggingStatus/sampleWidgetTemplate", function(){});
+define("loggingStatus/loggingStatusTemplate", function(){});
 
-define('loggingStatus/sampleWidgetController',['require'],function (require) {
+define('loggingStatus/loggingStatusController',['require'],function (require) {
     'use strict';
 
-    var sampleWidgetController = function ($scope, $window) {
-        var chart = $window.c3.generate({
-            data: {
-                columns: [
-                    ['SOFTCOLL', 30],
-                    ['HARDCOLL', 120],
-                    ['FIELDVIS', 60],
-                    ['PRELEGAL', 60]
-                ],
-                type: 'pie',
-                onclick: function (d, i) { console.log("onclick", d, i); },
-                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-            }
-        });
-
-        $("#char1").append(chart.element);
+    var loggingStatusController = function () {
+       
     };
 
-    sampleWidgetController.$inject = ['$scope', '$window'];
+    loggingStatusController.$inject = [];
 
-    return sampleWidgetController;
+    return loggingStatusController;
 });
-define('loggingStatus/sampleWidgetService',[],function () {
+define('loggingStatus/loggingStatusService',[],function () {
     'user strict';
-    var sampleWidgetService = function () {
+    var loggingStatusService = function () {
         var self = this;
 
         self.getMessage = function () {
@@ -44,32 +29,32 @@ define('loggingStatus/sampleWidgetService',[],function () {
         };
     };
 
-    sampleWidgetService.$inject = [];
-    return sampleWidgetService;
+    loggingStatusService.$inject = [];
+    return loggingStatusService;
 });
-define('loggingStatus/sampleWidgetDirective',[],function () {
+define('loggingStatus/loggingStatusDirective',[],function () {
     'use strict';
-    var sampleWidgetDirective = function () {
+    var loggingStatusDirective = function () {
         return {
             restrict: 'E',
             scope: {},
-            templateUrl: '/app/src/widgets/sampleWidget/sampleWidgetTemplate.html',
-            controller: 'sampleWidgetController',
+            templateUrl: '/app/src/widgets/loggingStatus/loggingStatusTemplate.html',
+            controller: 'loggingStatustController',
             link: function (scope, element, attrs) {
             }
         };
     };
-    return sampleWidgetDirective;
+    return loggingStatusDirective;
 });
-define('loggingStatus/loggingStatusModule',['require','loggingStatus/sampleWidgetTemplate','angular','loggingStatus/sampleWidgetController','loggingStatus/sampleWidgetService','loggingStatus/sampleWidgetDirective'],function (require) {
+define('loggingStatus/loggingStatusModule',['require','loggingStatus/loggingStatusTemplate','angular','loggingStatus/loggingStatusController','loggingStatus/loggingStatusService','loggingStatus/loggingStatusDirective'],function (require) {
     'use strict';
 
-    require('loggingStatus/sampleWidgetTemplate');
+    require('loggingStatus/loggingStatusTemplate');
 
     var angular = require('angular');
-    var loggingStatusController = require('loggingStatus/sampleWidgetController');
-    var loggingStatusService = require('loggingStatus/sampleWidgetService');
-    var loggingStatusDirective = require('loggingStatus/sampleWidgetDirective');
+    var loggingStatusController = require('loggingStatus/loggingStatusController');
+    var loggingStatusService = require('loggingStatus/loggingStatusService');
+    var loggingStatusDirective = require('loggingStatus/loggingStatusDirective');
 
     var smapleWidgetModule = angular.module('loggingStatus', ['loggingStatus.template']);
 

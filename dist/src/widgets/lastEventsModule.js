@@ -3,7 +3,7 @@ angular.module('lastEvents.template', ['/app/src/widgets/lastEvents/lastEventsTe
 angular.module("/app/src/widgets/lastEvents/lastEventsTemplate.html", []).run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("/app/src/widgets/lastEvents/lastEventsTemplate.html",
-    "<div class=row><div class=\"panel panel-default\"><div class=panel-heading><i class=\"fa fa-bar-chart-o fa-fw\"></i> Last 20 Events<div class=pull-right><div class=btn-group><button type=button class=\"btn btn-default btn-xs dropdown-toggle\" data-toggle=dropdown><i class=\"fa fa-gear\"></i> <span class=caret></span></button><ul class=\"dropdown-menu pull-right\" role=menu><li><a href=#>Action</a></li><li><a href=#>Another action</a></li><li><a href=#>Something else here</a></li><li class=divider></li><li><a href=#>Separated link</a></li></ul></div></div></div><div class=panel-body></div></div></div>");
+    "<div class=\"box box-primary\"><div class=\"box-header with-border\"><h3 class=box-title>Last 20 Events</h3><div class=\"box-tools pull-right\"><button type=button class=\"btn btn-box-tool\" data-widget=collapse><i class=\"fa fa-refresh\"></i></button> <button type=button class=\"btn btn-box-tool\" data-widget=remove><i class=\"fa fa-minus\"></i></button></div></div><div class=box-body><table class=table><thead class=thead-inverse><tr><th>Date/Time</th><th>Action</th><th>Results</th><th>Notes</th></tr></thead><tbody><tr><td>5/9/2016 –2:22:23</td><td>OC</td><td>NA</td><td>-</td></tr><tr><td>5/9/2016 –13:22:23</td><td>UPDTAG</td><td>UPDTAG</td><td>Tag ABC up...</td></tr><tr><td>5/9/2016 –3:22:23</td><td>WGCHNG</td><td>WGCHNG</td><td>SOFT to HARD</td></tr><tr><td>5/9/2016 –4:22:23</td><td>OC</td><td>NA</td><td>-</td></tr></tbody></table><div>*Columns between Result and Notes –Consumer/Account/Case, User</div></div></div>");
 }]);
 
 define("lastEvents/lastEventsTemplate", function(){});
@@ -21,7 +21,7 @@ define('lastEvents/lastEventsController',['require'],function (require) {
 });
 define('lastEvents/lastEventsService',[],function () {
     'user strict';
-    var sampleWidgetService = function () {
+    var lastEventsService = function () {
         var self = this;
 
         self.getMessage = function () {
@@ -29,22 +29,22 @@ define('lastEvents/lastEventsService',[],function () {
         };
     };
 
-    sampleWidgetService.$inject = [];
-    return sampleWidgetService;
+    lastEventsService.$inject = [];
+    return lastEventsService;
 });
 define('lastEvents/lastEventsDirective',[],function () {
     'use strict';
-    var sampleWidgetDirective = function () {
+    var lastEventsDirective = function () {
         return {
             restrict: 'E',
             scope: {},
             templateUrl: '/app/src/widgets/lastEvents/lastEventsTemplate.html',
-            controller: 'sampleWidgetController',
+            controller: 'lastEventstController',
             link: function (scope, element, attrs) {
             }
         };
     };
-    return sampleWidgetDirective;
+    return lastEventsDirective;
 });
 define('lastEvents/lastEventsModule',['require','lastEvents/lastEventsTemplate','angular','lastEvents/lastEventsController','lastEvents/lastEventsService','lastEvents/lastEventsDirective'],function (require) {
     'use strict';

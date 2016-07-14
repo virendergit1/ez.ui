@@ -1,14 +1,14 @@
 ﻿define(function () {
     'use strict';
-    var sampleWidgetDirective = function () {
+    var loggingStatusDirective = function () {
         return {
             restrict: 'E',
             scope: {},
             templateUrl: '/app/src/widgets/loggingStatus/loggingStatusTemplate.html',
-            controller: 'sampleWidgetController',
+            controller: 'loggingStatustController',
             link: function (scope, element, attrs) {
             }
         };
     };
-    return sampleWidgetDirective;
+    return loggingStatusDirective;
 });

@@ -1,4 +1,4 @@
-﻿define(function(require) {
+﻿define(function (require) {
     'use strict';
 
     var angular = require('angular');
@@ -12,8 +12,18 @@
 
     require("sampleWidget/sampleWidgetModule");
     require("anotherWidget/anotherWidgetModule");
+    require("lastEvents/lastEventsModule");
+    require("loggingStatus/loggingStatusModule");
 
-    var app = angular.module('myApp', ['ui.router', 'inform', 'sampleWidget', 'anotherWidget']);
+    var app = angular.module('myApp',
+        [
+            'ui.router',
+            'inform',
+            'sampleWidget',
+            'anotherWidget',
+            'lastEvents',
+            'loggingStatus'
+        ]);
 
     app.config(routes);
 
@@ -23,12 +33,12 @@
         .service('alertService', alertService)
         .service('baseApiProxy', baseApiProxy)
         .service('utilitiesService', utilitiesService)
-        .run(function() {
+        .run(function () {
 
         });
 
 
-    app.init = function() {
+    app.init = function () {
         angular.bootstrap(document, ['myApp']);
     };
 

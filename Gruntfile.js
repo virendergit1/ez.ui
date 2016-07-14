@@ -225,6 +225,8 @@
                         'spin': 'empty:',
                         'sampleWidget/sampleWidgetModule': 'empty:',
                         'anotherWidget/anotherWidgetModule': 'empty:',
+                        'lastEvents/lastEventsModule': 'empty:',
+                        'loggingStatus/loggingStatusModule': 'empty:',
                         'ngidle': 'empty:'
                     }
                 }

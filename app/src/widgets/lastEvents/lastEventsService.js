@@ -1,6 +1,6 @@
 ﻿define(function () {
     'user strict';
-    var sampleWidgetService = function () {
+    var lastEventsService = function () {
         var self = this;
 
         self.getMessage = function () {
@@ -8,6 +8,6 @@
         };
     };
 
-    sampleWidgetService.$inject = [];
-    return sampleWidgetService;
+    lastEventsService.$inject = [];
+    return lastEventsService;
 });

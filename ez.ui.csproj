@@ -759,8 +759,8 @@
     <Content Include="app\src\widgets\lastEvents\lastEventsController.js" />
     <Content Include="app\src\widgets\lastEvents\lastEventsDirective.js" />
     <Content Include="app\src\widgets\lastEvents\lastEventsTemplate.html" />
-    <Content Include="app\src\widgets\loggingStatus\loggingStatustController.js" />
-    <Content Include="app\src\widgets\loggingStatus\loggingStatustDirective.js" />
+    <Content Include="app\src\widgets\loggingStatus\loggingStatusController.js" />
+    <Content Include="app\src\widgets\loggingStatus\loggingStatusDirective.js" />
     <Content Include="app\src\widgets\loggingStatus\loggingStatusModule.js" />
     <Content Include="app\src\widgets\loggingStatus\loggingStatusService.js" />
     <Content Include="app\src\widgets\loggingStatus\loggingStatusTemplate.html" />

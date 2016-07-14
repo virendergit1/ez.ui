@@ -1,5 +1,5 @@
 /**
- * easycollect.ui - 2016/07/07 03:00:06 UTC
+ * easycollect.ui - 2016/07/14 02:57:20 UTC
 */
 define('src/src/services/validatorService',[],function () {
     'user strict';
@@ -136,7 +136,7 @@ define('src/src/services/alertService',[],function () {
     alertService.$inject = ['inform'];
     return alertService;
 });
-define('app',['require','angular','src/src/services/validatorService','src/src/apiProxies/baseApiProxy','route/routes','src/src/services/utilities','src/src/services/alertTypeConstant','src/src/services/alertService','sampleWidget/sampleWidgetModule','anotherWidget/anotherWidgetModule'],function(require) {
+define('app',['require','angular','src/src/services/validatorService','src/src/apiProxies/baseApiProxy','route/routes','src/src/services/utilities','src/src/services/alertTypeConstant','src/src/services/alertService','sampleWidget/sampleWidgetModule','anotherWidget/anotherWidgetModule','lastEvents/lastEventsModule','loggingStatus/loggingStatusModule'],function (require) {
     'use strict';
 
     var angular = require('angular');
@@ -150,8 +150,18 @@ define('app',['require','angular','src/src/services/validatorService','src/src/a
 
     require("sampleWidget/sampleWidgetModule");
     require("anotherWidget/anotherWidgetModule");
+    require("lastEvents/lastEventsModule");
+    require("loggingStatus/loggingStatusModule");
 
-    var app = angular.module('myApp', ['ui.router', 'inform', 'sampleWidget', 'anotherWidget']);
+    var app = angular.module('myApp',
+        [
+            'ui.router',
+            'inform',
+            'sampleWidget',
+            'anotherWidget',
+            'lastEvents',
+            'loggingStatus'
+        ]);
 
     app.config(routes);
 
@@ -161,12 +171,12 @@ define('app',['require','angular','src/src/services/validatorService','src/src/a
         .service('alertService', alertService)
         .service('baseApiProxy', baseApiProxy)
         .service('utilitiesService', utilitiesService)
-        .run(function() {
+        .run(function () {
 
         });
 
 
-    app.init = function() {
+    app.init = function () {
         angular.bootstrap(document, ['myApp']);
     };
 

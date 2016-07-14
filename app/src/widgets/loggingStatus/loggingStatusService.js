@@ -1,6 +1,6 @@
 ﻿define(function () {
     'user strict';
-    var sampleWidgetService = function () {
+    var loggingStatusService = function () {
         var self = this;
 
         self.getMessage = function () {
@@ -8,6 +8,6 @@
         };
     };
 
-    sampleWidgetService.$inject = [];
-    return sampleWidgetService;
+    loggingStatusService.$inject = [];
+    return loggingStatusService;
 });

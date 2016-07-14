@@ -1,12 +1,12 @@
 ﻿define(function (require) {
     'use strict';
 
-    require('loggingStatus/sampleWidgetTemplate');
+    require('loggingStatus/loggingStatusTemplate');
 
     var angular = require('angular');
-    var loggingStatusController = require('loggingStatus/sampleWidgetController');
-    var loggingStatusService = require('loggingStatus/sampleWidgetService');
-    var loggingStatusDirective = require('loggingStatus/sampleWidgetDirective');
+    var loggingStatusController = require('loggingStatus/loggingStatusController');
+    var loggingStatusService = require('loggingStatus/loggingStatusService');
+    var loggingStatusDirective = require('loggingStatus/loggingStatusDirective');
 
     var smapleWidgetModule = angular.module('loggingStatus', ['loggingStatus.template']);
 
